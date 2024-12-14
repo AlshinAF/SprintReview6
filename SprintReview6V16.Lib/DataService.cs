@@ -13,24 +13,7 @@
                 throw new ArgumentException("Некорректные параметры для создания массива.");
             }
 
-            Random random = new Random();
-
-            // Заполняем массив случайными числами в заданном диапазоне
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    if (j < 2)
-                    {
-                        array[i, j] = random.Next(n1, n2 + 1);
-                    }
-                    else
-                    {
-                        // Рассчитываем значение с учетом разности квадратов
-                        array[i, j] = array[i, j - 1] * array[i, j - 1] - array[i, j - 2] * array[i, j - 2];
-                    }
-                }
-            }
+            
 
             // Произведение элементов с нечетными индексами от K до L в строке C
             if (c < 0 || c >= rows || k < 0 || l >= cols || k > l)

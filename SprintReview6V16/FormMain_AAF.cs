@@ -12,20 +12,11 @@ namespace SprintReview6V16
         {
 
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void panelLeft_AAF_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBoxN1_AAF_TextChanged(object sender, EventArgs e)
         {
@@ -52,42 +43,13 @@ namespace SprintReview6V16
 
         }
 
-        private void buttonGenerateMatrix_AAF_Click(object sender, EventArgs e)
-        {
-            // Считываем параметры из TextBox
-            int n1 = int.Parse(textBoxN1_AAF.Text);
-            int n2 = int.Parse(textBoxN2_AAF.Text);
-            int rows = int.Parse(textBoxRows_AAF.Text);
-            int cols = int.Parse(textBoxCols_AAF.Text);
-            int c = int.Parse(textBoxC_AAF.Text);
-            int k = int.Parse(textBoxK_AAF.Text);
-            int l = int.Parse(textBoxL_AAF.Text);
-
-            // Создаем двумерный массив
-            int[,] array = new int[rows, cols];
-
-
-            // Заполняем DataGridView значениями массива
-            dataGridViewMatrix_AAF.ColumnCount = cols;
-            dataGridViewMatrix_AAF.RowCount = rows;
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    dataGridViewMatrix_AAF.Rows[i].Cells[j].Value = array[i, j];
-                }
-            }
-        }
 
         private void buttonDone_Click(object sender, EventArgs e)
         {
             {
                 try
                 {
-
-
-                    // Получаем значения из текстовых полей
+                    // Считываем параметры из TextBox
                     int n1 = int.Parse(textBoxN1_AAF.Text);
                     int n2 = int.Parse(textBoxN2_AAF.Text);
                     int rows = int.Parse(textBoxRows_AAF.Text);
@@ -97,8 +59,36 @@ namespace SprintReview6V16
                     int l = int.Parse(textBoxL_AAF.Text);
 
                     // Создаем двумерный массив
-
                     int[,] array = new int[rows, cols];
+                    Random random = new Random();
+
+                    // Заполняем массив случайными числами в заданном диапазоне
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < cols; j++)
+                        {
+                            if (j < 2)
+                            {
+                                array[i, j] = random.Next(n1, n2 + 1);
+                            }
+                            else
+                            {
+                                // Рассчитываем значение с учетом разности квадратов
+                                array[i, j] = array[i, j - 1] * array[i, j - 1] - array[i, j - 2] * array[i, j - 2];
+                            }
+                        }
+                    }
+                    // Заполняем DataGridView значениями массива
+                    dataGridViewMatrix_AAF.ColumnCount = cols;
+                    dataGridViewMatrix_AAF.RowCount = rows;
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < cols; j++)
+                        {
+                            dataGridViewMatrix_AAF.Rows[i].Cells[j].Value = array[i, j];
+                        }
+                    }
 
                     int product = ds.GetMatrix(array, n1, n2, c, k, l);
                     textBoxResult_AAF.Text = product.ToString();

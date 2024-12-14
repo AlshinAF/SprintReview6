@@ -36,7 +36,6 @@ namespace SprintReview6V16
             panelRight_AAF = new Panel();
             groupBoxValue_AAF = new GroupBox();
             buttonDone = new Button();
-            buttonGenerateMatrix_AAF = new Button();
             labelL_AAF = new Label();
             labelK_AAF = new Label();
             labelC_AAF = new Label();
@@ -53,12 +52,12 @@ namespace SprintReview6V16
             textBoxN2_AAF = new TextBox();
             textBoxN1_AAF = new TextBox();
             panelLeft_AAF = new Panel();
+            labelDescription_AAF = new Label();
+            textBoxDescription_AAF = new TextBox();
             labelResult_AAF = new Label();
             textBoxResult_AAF = new TextBox();
             splitter1 = new Splitter();
             toolTip_AAF = new ToolTip(components);
-            textBoxDescription_AAF = new TextBox();
-            labelDescription_AAF = new Label();
             panelTop_AAF.SuspendLayout();
             panelRight_AAF.SuspendLayout();
             groupBoxValue_AAF.SuspendLayout();
@@ -100,7 +99,6 @@ namespace SprintReview6V16
             // groupBoxValue_AAF
             // 
             groupBoxValue_AAF.Controls.Add(buttonDone);
-            groupBoxValue_AAF.Controls.Add(buttonGenerateMatrix_AAF);
             groupBoxValue_AAF.Controls.Add(labelL_AAF);
             groupBoxValue_AAF.Controls.Add(labelK_AAF);
             groupBoxValue_AAF.Controls.Add(labelC_AAF);
@@ -128,24 +126,13 @@ namespace SprintReview6V16
             // buttonDone
             // 
             buttonDone.BackColor = Color.FromArgb(255, 192, 128);
-            buttonDone.Location = new Point(241, 264);
+            buttonDone.Location = new Point(135, 264);
             buttonDone.Name = "buttonDone";
             buttonDone.Size = new Size(152, 23);
             buttonDone.TabIndex = 17;
             buttonDone.Text = "Выполнить";
             buttonDone.UseVisualStyleBackColor = false;
             buttonDone.Click += buttonDone_Click;
-            // 
-            // buttonGenerateMatrix_AAF
-            // 
-            buttonGenerateMatrix_AAF.BackColor = Color.FromArgb(192, 255, 255);
-            buttonGenerateMatrix_AAF.Location = new Point(69, 264);
-            buttonGenerateMatrix_AAF.Name = "buttonGenerateMatrix_AAF";
-            buttonGenerateMatrix_AAF.Size = new Size(166, 23);
-            buttonGenerateMatrix_AAF.TabIndex = 16;
-            buttonGenerateMatrix_AAF.Text = "Создать матрицу";
-            buttonGenerateMatrix_AAF.UseVisualStyleBackColor = false;
-            buttonGenerateMatrix_AAF.Click += buttonGenerateMatrix_AAF_Click;
             // 
             // labelL_AAF
             // 
@@ -237,6 +224,7 @@ namespace SprintReview6V16
             dataGridViewMatrix_AAF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMatrix_AAF.Location = new Point(0, 117);
             dataGridViewMatrix_AAF.Name = "dataGridViewMatrix_AAF";
+            dataGridViewMatrix_AAF.RowHeadersVisible = false;
             dataGridViewMatrix_AAF.Size = new Size(459, 141);
             dataGridViewMatrix_AAF.TabIndex = 5;
             dataGridViewMatrix_AAF.CellContentClick += dataGridViewMatrixAAF_CellContentClick;
@@ -284,6 +272,26 @@ namespace SprintReview6V16
             panelLeft_AAF.TabIndex = 0;
             panelLeft_AAF.Paint += panelLeft_AAF_Paint;
             // 
+            // labelDescription_AAF
+            // 
+            labelDescription_AAF.AutoSize = true;
+            labelDescription_AAF.Location = new Point(37, 102);
+            labelDescription_AAF.Name = "labelDescription_AAF";
+            labelDescription_AAF.Size = new Size(56, 15);
+            labelDescription_AAF.TabIndex = 7;
+            labelDescription_AAF.Text = "Условие:";
+            // 
+            // textBoxDescription_AAF
+            // 
+            textBoxDescription_AAF.BackColor = SystemColors.ControlLightLight;
+            textBoxDescription_AAF.Location = new Point(37, 120);
+            textBoxDescription_AAF.Multiline = true;
+            textBoxDescription_AAF.Name = "textBoxDescription_AAF";
+            textBoxDescription_AAF.ReadOnly = true;
+            textBoxDescription_AAF.Size = new Size(241, 200);
+            textBoxDescription_AAF.TabIndex = 6;
+            textBoxDescription_AAF.Text = resources.GetString("textBoxDescription_AAF.Text");
+            // 
             // labelResult_AAF
             // 
             labelResult_AAF.AutoSize = true;
@@ -314,26 +322,6 @@ namespace SprintReview6V16
             // toolTip_AAF
             // 
             toolTip_AAF.ToolTipTitle = "Подсказка";
-            // 
-            // textBoxDescription_AAF
-            // 
-            textBoxDescription_AAF.BackColor = SystemColors.ControlLightLight;
-            textBoxDescription_AAF.Location = new Point(56, 120);
-            textBoxDescription_AAF.Multiline = true;
-            textBoxDescription_AAF.Name = "textBoxDescription_AAF";
-            textBoxDescription_AAF.ReadOnly = true;
-            textBoxDescription_AAF.Size = new Size(206, 184);
-            textBoxDescription_AAF.TabIndex = 6;
-            textBoxDescription_AAF.Text = resources.GetString("textBoxDescription_AAF.Text");
-            // 
-            // labelDescription_AAF
-            // 
-            labelDescription_AAF.AutoSize = true;
-            labelDescription_AAF.Location = new Point(56, 102);
-            labelDescription_AAF.Name = "labelDescription_AAF";
-            labelDescription_AAF.Size = new Size(56, 15);
-            labelDescription_AAF.TabIndex = 7;
-            labelDescription_AAF.Text = "Условие:";
             // 
             // FormMain_AAF
             // 
@@ -384,7 +372,6 @@ namespace SprintReview6V16
         private Label labelRows_AAF;
         private Label labelN2_AAF;
         private Label labelN1_AAF;
-        private Button buttonGenerateMatrix_AAF;
         private Button buttonDone;
         private TextBox textBoxResult_AAF;
         private Label labelResult_AAF;
