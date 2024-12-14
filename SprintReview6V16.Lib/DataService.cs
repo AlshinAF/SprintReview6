@@ -29,7 +29,6 @@
                     product *= array[c, index];
                 }
             }
-
             return product;
         }
     }
